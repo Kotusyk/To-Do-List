@@ -11,10 +11,9 @@ namespace App.DAL.Model
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        public string Title { get; set; }
-        public string Date { get; set; }
+        public string? Title { get; set; }
+        
+        public string? Date { get; set; }
         public bool Status { get; set; }
         public bool Urgently { get; set; }
     }

@@ -4,10 +4,12 @@
 using App.BLL.Services.Contracts;
 using App.DAL.Model;
 using App.DAL.Repository.Contracts;
+using Microsoft.AspNetCore.Cors;
 
 namespace App.Pl.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("_myAllowSpecificOrigins")]
     public class ToDoTasksController : Controller
     {
 
@@ -40,21 +42,21 @@ namespace App.Pl.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something Went Wrong");
             }
-            return Ok("New Task added successfully");
+            return Ok(task);
         }
 
-        [HttpPut("Update")]
-        public async Task<IActionResult> Put(Assignment task)
+        [HttpPut]
+        public async Task <IActionResult> Put([FromBody] Assignment task)
         {
             await _toDoListRepository.Update(task);
-            return Ok($"Task was updated to '{task.Title}'successfully");
+            return Ok(task);
         }
 
-        [HttpDelete("{id}", Name = "Delete")]
-        public JsonResult Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _toDoListRepository?.Delete(id);
-            return new JsonResult("Task was deleted successfully");
+           await _toDoListRepository?.Delete(id);
+            return Ok(id);
         }
     }
 }

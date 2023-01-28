@@ -46,22 +46,18 @@ namespace App.DAL.Data
                 entity.Property(e => e.Title)
                     .HasColumnType("varchar")
                     .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .IsRequired();
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Date)
                     .HasColumnType("varchar")
                      .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .IsRequired();
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Status)
-                    .HasColumnType("bit")
-                    .IsRequired();
+                    .HasColumnType("bit");
 
                 entity.Property(e => e.Urgently)
-                  .HasColumnType("bit")
-                  .IsRequired();
+                  .HasColumnType("bit");
 
             });
         }

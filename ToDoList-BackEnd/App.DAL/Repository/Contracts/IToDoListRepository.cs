@@ -13,7 +13,7 @@ namespace App.DAL.Repository.Contracts
         Task<IEnumerable<Assignment>> Get();
         Task<Assignment> GetById(int Id);
         Task<Assignment> Create(Assignment assignmentForCreating);
-        Task<Assignment> Update(Assignment assignmentForUpdating);
-        bool Delete(int Id);
+        Task<Assignment> Update (Assignment assignmentForUpdating);
+        Task<Assignment> Delete(int Id);
     }
 }

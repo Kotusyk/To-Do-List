@@ -30,12 +30,12 @@ namespace App.BLL.Services.Contracts
             return await _repository.Create(assignmentForCreating);
 
         }
-        public async Task<Assignment> Update(Assignment assignmentForUpdating)
+        public Task<Assignment> Update(Assignment assignmentForUpdating)
         {
-            return await _repository.Update(assignmentForUpdating);
+            return _repository.Update(assignmentForUpdating);
 
         }
-        public bool Delete(int Id)
+        public Task<Assignment> Delete(int Id)
         {
             return _repository.Delete(Id);
         }

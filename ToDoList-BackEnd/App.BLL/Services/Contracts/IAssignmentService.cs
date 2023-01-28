@@ -13,6 +13,6 @@ namespace App.BLL.Services.Contracts
         Task<Assignment> GetById(int Id);
         Task<Assignment> Create(Assignment assignmentForCreating);
         Task<Assignment> Update(Assignment assignmentForUpdating);
-        bool Delete(int Id);
+        Task<Assignment> Delete(int Id);
     }
 }
