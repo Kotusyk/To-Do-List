@@ -3,6 +3,7 @@ using App.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.DAL.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20230129005444_UpdatedAssignment")]
+    partial class UpdatedAssignment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +41,7 @@ namespace App.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar");
+                        .HasColumnType("varchar(150)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(150)

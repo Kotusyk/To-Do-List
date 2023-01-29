@@ -14,55 +14,45 @@ namespace App.DAL.Data
         {
             Database.EnsureCreated();
         }
+
+        //   public DbSet<Status> Statuses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Assignment>(entity =>
-            //{
-            //    entity.HasKey(x => x.Id);
 
-            //    entity.Property(e => e.Title)
-            //        .HasColumnType("varchar")
-            //        .HasMaxLength(150)
-            //        .IsUnicode(false)
-            //        .IsRequired();
-
-            //    entity.Property(e => e.Date)
-            //        .HasColumnType("varchar")
-            //        .IsRequired();
-
-            //    entity.Property(e => e.Status)
-            //        .HasColumnType("bit")
-            //        .IsRequired();
-
-            //    entity.Property(e => e.Urgently)
-            //      .HasColumnType("bit")
-            //      .IsRequired();
-
-            //});
             modelBuilder.Entity<Assignment>(entity =>
             {
-                entity.HasKey(x => x.Id);
+                entity.HasKey(x => x.Id);;
 
                 entity.Property(e => e.Title)
-                    .HasColumnType("varchar")
-                    .HasMaxLength(150)
-                    .IsUnicode(false);
+                      .HasColumnType("varchar")
+                      .HasMaxLength(150)
+                      .IsUnicode(false);
 
                 entity.Property(e => e.Date)
-                    .HasColumnType("varchar")
-                     .HasMaxLength(150)
-                    .IsUnicode(false);
+                      .HasColumnType("varchar")
+                      .HasMaxLength(150)
+                      .IsUnicode(false);
 
                 entity.Property(e => e.Status)
-                    .HasColumnType("bit");
+                     .HasColumnType("varchar")
+                     .HasMaxLength(150)
+                     .IsUnicode(false);
+
 
                 entity.Property(e => e.Urgently)
-                  .HasColumnType("bit");
-
+                      .HasColumnType("bit");
             });
         }
+        //modelBuilder.Entity<Status>(entity =>
+        //{
+        //    entity.HasKey(x => x.Name);
+
+        //});
+        public DbSet<Assignment> Assignments { get; set; }
+
+
+    } 
+}
 
         // public DbSet<Assignment> Assignments { get; set; }
-        public DbSet<Assignment> Assignments { get; set; }
-    }
-}
+  
