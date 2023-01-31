@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace App.DAL.Model
 {
+    //it's optional but I anyway leave it here
     public static class StatusTypeClass
     {
         public const string ToDo = "To Do";

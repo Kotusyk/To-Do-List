@@ -15,7 +15,6 @@ namespace App.DAL.Data
             Database.EnsureCreated();
         }
 
-        //   public DbSet<Status> Statuses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -43,16 +42,11 @@ namespace App.DAL.Data
                       .HasColumnType("bit");
             });
         }
-        //modelBuilder.Entity<Status>(entity =>
-        //{
-        //    entity.HasKey(x => x.Name);
-
-        //});
         public DbSet<Assignment> Assignments { get; set; }
 
 
     } 
 }
 
-        // public DbSet<Assignment> Assignments { get; set; }
+        }
   
